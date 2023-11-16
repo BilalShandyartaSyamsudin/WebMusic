@@ -1,0 +1,49 @@
+body{
+    background-color: #F05941;
+}
+#nav{
+    background-color: #872341;
+}
+.btn {
+    color: #F05941;
+    background-color: #22092C;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.btn:hover {
+    color: #22092C;
+    background-color: #F05941;
+}
+#card{
+    background-color: #BE3144;
+    padding: 20px;
+}
+.audio-container {
+    position: relative;
+  }
+  
+  .audio {
+    width: 100%;
+    height: 40px;
+    background-color: #22092C;
+    color: #F05941;
+    border: 2px solid #F05941;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .audio:hover {
+    background-color: #F05941;
+    color: #22092C;
+    border: 2px solid #22092C;
+  }
+  footer{
+    position: fixed;
+      bottom: 0;
+      height: 120px;
+      width: 100%;
+      background-color: #22092C; /* Ganti dengan warna latar belakang yang diinginkan */
+      color: white; /* Ganti dengan warna teks yang diinginkan */
+      text-align: center;
+      padding: 10px; /* Sesuaikan dengan kebutuhan padding */
+  }
