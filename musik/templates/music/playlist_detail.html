@@ -4,8 +4,11 @@
 
 
       <div class="container mt-3"> 
-        {% for song in allSongs %}
+            <h2>{{ playlist.name }}</h2>
+        {% for song in songs %}
+
             <div class="card mb-3"  id="card">
+                
                 <div class="row g-0">
                     <div class="col-md-2">
                         <img src="{{song.songThumbnail.url}}" class="img-fluid rounded-start" alt="{{song.songName}}">
@@ -28,28 +31,18 @@
                         </div>
                         <div class="audio-file d-none">
                             <audio controls >
-                        <source src="{{song.song.url}}" type="audio/mpeg">
+                        <source src="{{song.song.url}}" type="audio/mpeg">  
                         Your browser does not support the audio tag.
                       </audio>
                         </div>
                     </div>
+                    <div class="hapus" style="padding-top: 20px;">
+                        <form method="post" action="{% url 'remove_from_playlist' playlist.id song.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger" >Hapus dari Playlist</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="add" style="padding-top: 20px;">
-                    <form method="post" action="{% url 'add_to_playlist' song.id %}">
-                        {% csrf_token %}
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                Tambah Playlist
-                            </button>
-                            <ul class="dropdown-menu">
-                                {% for playlist in allPlaylists %}
-                                    <li><button class="dropdown-item" type="submit" name="playlist" value="{{ playlist.id }}">{{ playlist.name }}</button></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </form>
-                </div>
-                
             </div>
         {% endfor %}
       </div>
@@ -61,6 +54,12 @@
     
             if (status === "success") {
                 alert(message);
+    
+                // Cek apakah ada URL pengalihan
+                var redirectUrl = "{{ redirect }}";
+                if (redirectUrl) {
+                    window.location.href = redirectUrl;  // Redirect ke playlist setelah penghapusan lagu
+                }
             }
         });
     </script>

@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'D:\django\webMusic\musik\static\css\style.css' %}">
     
     <title>{% block title %}WebMusic | Home{% endblock title %}</title>
 
@@ -21,8 +21,9 @@
     <nav class="navbar navbar-expand-lg" id="nav">
         <div class="container-fluid">
             <a class="navbar-brand " href="{% url 'index' %}">
-              <h1 class="title" style="font-family: 'Jost', sans-serif;color: #F05941;">Web<span style="color: #22092C;">Music</span></h1>
+              <h1 class="title" style="font-family: 'Jost', sans-serif;color: #F05941;">Music<span style="color: #22092C;">Streming</span></h1>
             </a>
+            <a class="navbar-brand" href="{% url 'playlist_list' %}" style="font-family: 'Jost', sans-serif;color: #22092C;"><h4>PLAYLIST</h4></a>
             <form class="d-flex translate-middle-x" role="search" action={% url 'search_songs' %}>
                 {% csrf_token %}
                 <input class="form-control me-2" type="search" placeholder="Artist Album Song" aria-label="Search" name="search">

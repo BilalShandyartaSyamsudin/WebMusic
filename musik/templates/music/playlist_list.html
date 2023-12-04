@@ -1,0 +1,23 @@
+<!-- Pada file playlist_list.html -->
+{% extends 'music/base.html' %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="playlist-title">
+            <span class="navbar-brand" style="font-family: 'Jost', sans-serif;color: #22092C;"><h1>PLAYLIST</h1></span>
+            <a href="{% url 'create_playlist' %}" class="buat_playlist" style="font-family: 'Jost', sans-serif;color: #22092C; text-decoration: none;">Buat Playlist Baru</a>
+        </div>
+        
+        <div class="list">
+            {% for playlist in playlists %}
+                <a href="{% url 'playlist_detail' playlist.id %}" style="text-decoration: none;"  class="playlist_link">{{ playlist.name }}</a>
+                <form action="{% url 'delete_playlist' playlist.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger" id="btn_delete">Hapus</button>
+                </form>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
+

@@ -1,0 +1,22 @@
+{% extends 'music/base.html' %}
+
+{% block content %}
+<div class="container" style="margin-top: 30px;">
+  <h1 class="create">Buat Playlist Baru</h1>
+  <div>
+  <form method="post" action="{% url 'create_playlist' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+    <input type="text" class="form-control" style="width: 300px;" placeholder="Nama Playlist"></div>
+  </div>
+  <div class="button" style="margin-left: 110px;">
+    <button type="submit" class="btn btn-denger">Submit</button><br>
+    <a href="{% url 'index' %}" class="cancel">Cancel</a>
+  </div>
+  </form>
+
+  </div>
+</div>
+ 
+
+{% endblock %}

@@ -42,8 +42,49 @@ body{
       bottom: 0;
       height: 120px;
       width: 100%;
-      background-color: #22092C; /* Ganti dengan warna latar belakang yang diinginkan */
+      background-color: #22092C; 
       color: white; /* Ganti dengan warna teks yang diinginkan */
       text-align: center;
       padding: 10px; /* Sesuaikan dengan kebutuhan padding */
   }
+
+.playlist_link{
+  color:#22092C ;
+  font-weight: bold;
+}
+
+.playlist_link:hover{
+  color: #583066;
+}
+
+.playlist-title{
+  text-align: center;
+}
+
+.list{
+  
+}
+
+#btn_delete{
+  display: inline;
+  right: 0;
+}
+
+/* .mb-3{
+  text-align: center;
+} */
+
+.cancel{
+  text-decoration: none;
+  color: #22092C;
+  text-align: center;
+}
+
+.create{
+  font-family: 'Jost', sans-serif;
+  color: #22092C;
+}
+
+.cancel:hover{
+  color: #583066;
+}

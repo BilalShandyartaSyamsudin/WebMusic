@@ -42,3 +42,15 @@ class Song(models.Model):
     def __str__(self):
         return self.songName
 
+class Playlist(models.Model):
+    name = models.CharField(_("Playlist Name"), max_length=50)
+    songs = models.ManyToManyField(Song, verbose_name=_("Songs in Playlist"))
+    created = models.DateTimeField(_("Playlist created date"), auto_now_add=True)
+    last_updated = models.DateTimeField(_("Latest playlist update"), auto_now=True)
+
+    class Meta:
+        verbose_name = _("Playlist")
+        verbose_name_plural = _("Playlists")
+
+    def __str__(self):
+        return self.name
